@@ -7,22 +7,22 @@ let sceneN,
   timeCountMin,
   nailN,
   Happiness;
-  const textBoxHeight = 400*3/4-10;
+const textBoxHeight = 400 * 3 / 4 - 10;
 let spoon, spoonGray, cats, brush, livingRoom, Remote, tv, hand, doorClose, meow, purr, spoonSound;
 let spoonsDisplayed = [];
 let spoonsGray = [];
 let spoons = [];
-let spoonPlay=false;
+let spoonPlay = false;
 let tvpics = [];
 let nails = [];
 let previousChoice, previous;
-let LRScript1, hwDecision, doHwAnyway, hwPostRelax;
+let LRScript1, hwDecision, doHwAnyway, hwPostRelax, goToBed;
 
 function preload() {
   doorClose = loadSound("Assets/door-open-close-45475.mp3");
   meow = loadSound("Assets/cat-meow-6226.mp3");
   purr = loadSound("Assets/cat-purring.mp3");
-  spoonSound=loadSound("Assets/spoon_sound.mp3");
+  spoonSound = loadSound("Assets/spoon_sound.mp3");
   spoon = loadImage("Assets/kitchen-spoon-icon.png");
   spoonGray = loadImage("Assets/IMG_0404.png");
   livingRoom = loadImage("Assets/IMG_2877.jpeg");
@@ -49,6 +49,7 @@ function setup() {
   hwDecision = initHwDecision();
   hwPostRelax = initHwPostRelax();
   doHwAnyway = initDoHwAnyway();
+  goToBed = initgoToBed();
   initGlobalVariables();
   tvPictures = initTvPics();
   NailPics = initNails();
@@ -56,7 +57,7 @@ function setup() {
   startButton = new Button(width / 2, height / 2 + 100, 75, 50, "Start");
   endButton = new Button(width / 2, height / 2 + 100, 125, 50, "Start Over");
   nextButton = new Button(width - 60, height - 50, 75, 50, "Next");
-  
+
 }
 
 function draw() {
@@ -90,6 +91,9 @@ function draw() {
       break;
     case 9:
       sceneHwPostRelax();
+      break;
+    case 10:
+      sceneInstructions();
       break;
   }
 }
@@ -127,11 +131,11 @@ function initGlobalVariables() {
   nailN = 0;
   Happiness = -10;
   previous = false;
-  
+
 }
 
 function mousePressed() {
-  
+
   if (timeCountMin == 60) {
     timeCount += 1;
     timeCountMin = 0;
@@ -149,9 +153,13 @@ function mousePressed() {
     nextButton.setVisible(false);
     console.log("scene" + sceneN);
   }
-
-  if (startButton.isClicked(mouseX, mouseY)) {
+  if (sceneN == 10 && nextButton.isClicked(mouseX, mouseY)) {
     sceneN = 7;
+    nextButton.setVisible(false);
+    console.log("scene" + sceneN);
+  }
+  if (startButton.isClicked(mouseX, mouseY)) {
+    sceneN = 10;
     startButton.setVisible(false);
     console.log("scene" + sceneN);
   }
@@ -163,9 +171,9 @@ function mousePressed() {
     }
   }
   catsPressed();
-  if (spoonPlay){
+  if (spoonPlay) {
     spoonSound.play();
-    spoonPlay=false;
+    spoonPlay = false;
   }
   /*  if (timeCount >= 11 && sceneN == 1) {
     sceneN = 6;

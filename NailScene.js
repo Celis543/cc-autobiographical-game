@@ -6,6 +6,7 @@ function initNails(){
   return nailPNGs;
 }
 function sceneNails() {
+  decisionPane1.setVisible(false);
   image(livingRoom, 0, 0, width, height);
   NailPics[nailN].display();
     backButton.setVisible(true);

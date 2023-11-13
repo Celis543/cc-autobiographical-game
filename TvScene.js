@@ -9,10 +9,10 @@ function initTvPics(){    //initializing tv scene pictures
 }
 
 function sceneTV() {
-  noCursor();
   decisionPane1.setVisible(false);
   tvPictures[tvPicNumber].display();
   push();
+  noCursor();
   imageMode(CENTER);
  /* txtBx = new textBox();
   txtBx.display();*/
