@@ -10,7 +10,6 @@ class tvPics{
   
   display(){
     push();
-    //scale(6/8);
  push();
   imageMode(CENTER);
   image(this.img, this.x, this.y, this.tvWidth, this.tvHeight);

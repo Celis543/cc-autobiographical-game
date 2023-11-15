@@ -35,7 +35,7 @@ class Script {
       fill("green");
       textStyle(BOLD);
       textSize(20);
-      text('>', this.buttonTextWidth+16, this.txtPos-2);
+      text('>', this.buttonTextWidth+16, this.txtPos-2,(width * 5) / 6);
       pop();
       pop();
     }

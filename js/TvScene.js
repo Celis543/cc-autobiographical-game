@@ -8,6 +8,12 @@ function initTvPics(){    //initializing tv scene pictures
   return pics;
 }
 
+function vidLoad(){
+  AceClip.size(445,250);
+  AceClip.position(width/2,height/2);
+  AceClip.play();
+}
+
 function sceneTV() {
   decisionPane1.setVisible(false);
   tvPictures[tvPicNumber].display();
@@ -16,6 +22,7 @@ function sceneTV() {
   imageMode(CENTER);
  /* txtBx = new textBox();
   txtBx.display();*/
+  
   image(Remote,mouseX,mouseY,45,135);
  //console.log(mouseX + ', ' + mouseY);
   pop();
