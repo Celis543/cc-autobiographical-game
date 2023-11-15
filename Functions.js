@@ -49,6 +49,7 @@ previous = true;
 
 function LRSetup(){
   image(livingRoom, 0, 0, width, height);
+  cursor();
   SpoonsDisplayed();
   txtBx = new textBox();
   txtBx.display();
