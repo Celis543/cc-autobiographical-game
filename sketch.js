@@ -17,6 +17,9 @@ let tvpics = [];
 let nails = [];
 let previousChoice, previous;
 let LRScript1, hwDecision, doHwAnyway, hwPostRelax, goToBed;
+let NailPics, NailScript;
+let AceClip;
+let mood = [];
 
 function preload() {
   doorClose = loadSound("Assets/door-open-close-45475.mp3");
@@ -38,12 +41,17 @@ function preload() {
   nails[0] = loadImage("Assets/IMG_0403.png");
   nails[1] = loadImage("Assets/IMG_0402.png");
   nails[2] = loadImage("Assets/IMG_0401.png");
+  mood[0] = loadImage("Assets/badMood.png");
+  mood[1] = loadImage("Assets/meh.png");
+  mood[2] = loadImage("Assets/goodMood.png");
+  clockFont = loadFont('Assets/Fonts/clockType.ttf');
 }
 
 function setup() {
   //createCanvas(windowWidth, windowHeight);
   createCanvas(711, 400);
   textFont("Courier");
+  //AceClip= createVideo('Assets/AceAttorney.mp4');
   LRScript1 = LivingRoomScript1();
   decisionPane1 = initDecisionPane1();
   hwDecision = initHwDecision();
@@ -53,6 +61,7 @@ function setup() {
   initGlobalVariables();
   tvPictures = initTvPics();
   NailPics = initNails();
+  NailScript = initNailScript();
   backButton = new Button(50, 50, 75, 50, "Back");
   startButton = new Button(width / 2, height / 2 + 100, 75, 50, "Start");
   endButton = new Button(width / 2, height / 2 + 100, 125, 50, "Start Over");
@@ -148,6 +157,7 @@ function mousePressed() {
   tvMousePressed();
   lrMousePressed(); //mousePressed functions for Living Room Scene
   hwMousePressed(); //HW scene
+  nailMousePressed(); //nail scene
   if (sceneN == 7 && nextButton.isClicked(mouseX, mouseY)) {
     sceneN = 1;
     nextButton.setVisible(false);
@@ -162,13 +172,6 @@ function mousePressed() {
     sceneN = 10;
     startButton.setVisible(false);
     console.log("scene" + sceneN);
-  }
-  if (sceneN == 3) {
-    if (nailN >= NailPics.length - 1) {
-      nailN = 0;
-    } else {
-      nailN++;
-    }
   }
   catsPressed();
   if (spoonPlay) {
