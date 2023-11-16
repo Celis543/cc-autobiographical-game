@@ -57,8 +57,7 @@ function sceneLiving() {
   }*/
 }
 
-function lrMousePressed() {
-  //everything that goes in mousePressed
+function lrMousePressed() { //everything that goes in mousePressed
   LRScript1.clicked();
   if (LRScript1.isScriptDone()) {
     decisionPane1.clicked();
