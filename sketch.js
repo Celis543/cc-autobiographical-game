@@ -49,7 +49,7 @@ function preload() {
   hair[0]=loadImage('Assets/IMG_0419.jpeg');
   hair[1]=loadImage('Assets/IMG_0420.jpeg');
   clockFont = loadFont('Assets/Fonts/clockType.ttf');
-  startScreenFont= loadFont('Assets/Fonts/cartoonBlocks.otf');
+  startScreenFont= loadFont('Assets/Fonts/cartoonBlocks.ttf');
 }
 
 function setup() {
