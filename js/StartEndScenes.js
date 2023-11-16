@@ -1,7 +1,24 @@
 function sceneStart() {
-  background(255);
+  let pos=0;
   push();
-  textSize(40);
+  translate(width/2,height/2);
+  scale(0.5);
+  imageMode(CENTER);
+  image(hair[0],0,0);
+  push();
+  tint(255, 100);
+  var x = 0 + 20 * cos(angle);
+	var y = 0 + 20 * sin(angle);
+  image(hair[1],x,y);
+  angle += 0.01;
+  console.log('x,y' + angle)
+  pop(); 
+  pop();
+  push();
+  fill(255);
+  textStyle(BOLD);
+  textSize(60);
+  textFont(startScreenFont);
   textAlign(CENTER, CENTER);
   text("SARA TAKES CARE OF HERSELF: A GAME", width / 2 - 200, 170, 400);
   pop();

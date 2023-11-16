@@ -28,6 +28,9 @@ function initDecisionPane1() {
 }
 
 function initgoToBed() {
+ /* let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
+  let timestring=timetxt.toString();
+  console.log(timestring);*/
   scriptText = [`${timeCount}:${clockFormatting(timeCountMin)}`, "Wow, that late already?", "I guess I should get ready for bed."];
   scriptStyle = [ITALIC, NORMAL, NORMAL]
   let bedScript = new Script(scriptText, scriptStyle);
@@ -38,10 +41,13 @@ function initgoToBed() {
 
 //living room scene
 function sceneLiving() {
+  //console.log(mouseX + ', ' + mouseY);
   LRSetup();
   //display script text, if end of script text display text choices
   LRScript1.display();
   LRScript1.begin(true);
+  //console.log(LRScript1.txtPos);
+
   if (LRScript1.isScriptDone()) {
     decisionPane1.setVisible(true);
     decisionPane1.display();

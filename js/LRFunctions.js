@@ -41,14 +41,17 @@ function clockDisplay(){
   stroke(90);
   rect(45, 21, textWidth(time) + 20, 25, 5);  //clock background
   pop();
+  push();
   textFont(clockFont);
   fill("red");
   text(time, 45, 30); //clock time
+  pop();
+  pop();
 }
 
 function moodMeter(){
   let rectLength = map(Happiness, -10, 50, 10, 60);
-  console.log('Mood ' + Happiness);
+  //console.log('Mood ' + Happiness);
   push();
   let f;
   let j;
@@ -91,7 +94,7 @@ function createAction(
     //redraw();
     if (changeSpoons != 0) {
       spoonPlay = true;
-      console.log(spoonPlay);
+      //console.log(spoonPlay);
     }
     console.log("scene " + sceneN);
     console.log("time is " + timeCount + ":" + clockFormatting(timeCountMin));
@@ -101,7 +104,6 @@ function createAction(
 function LRSetup() { //setup function for Living Room scenes
   image(livingRoom, 0, 0, width, height);
   cursor();
-  SpoonsDisplayed();
   txtBx = new textBox();
   txtBx.display();
   push();

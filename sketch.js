@@ -20,6 +20,8 @@ let LRScript1, hwDecision, doHwAnyway, hwPostRelax, goToBed;
 let NailPics, NailScript;
 let AceClip;
 let mood = [];
+let hair = [];
+var angle = 0;
 
 function preload() {
   doorClose = loadSound("Assets/door-open-close-45475.mp3");
@@ -44,7 +46,10 @@ function preload() {
   mood[0] = loadImage("Assets/badMood.png");
   mood[1] = loadImage("Assets/meh.png");
   mood[2] = loadImage("Assets/goodMood.png");
+  hair[0]=loadImage('Assets/IMG_0419.jpeg');
+  hair[1]=loadImage('Assets/IMG_0420.jpeg');
   clockFont = loadFont('Assets/Fonts/clockType.ttf');
+  startScreenFont= loadFont('Assets/Fonts/cartoonBlocks.otf');
 }
 
 function setup() {
@@ -66,7 +71,9 @@ function setup() {
   startButton = new Button(width / 2, height / 2 + 100, 75, 50, "Start");
   endButton = new Button(width / 2, height / 2 + 100, 125, 50, "Start Over");
   nextButton = new Button(width - 60, height - 50, 75, 50, "Next");
-
+  let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
+  let timestring=timetxt.toString();
+  console.log(timestring);
 }
 
 function draw() {
