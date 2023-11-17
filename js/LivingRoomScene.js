@@ -46,8 +46,6 @@ function sceneLiving() {
   //display script text, if end of script text display text choices
   LRScript1.display();
   LRScript1.begin(true);
-  //console.log(LRScript1.txtPos);
-
   if (LRScript1.isScriptDone() && timeCount <= 9) {
     decisionPane1.setVisible(true);
     decisionPane1.display();

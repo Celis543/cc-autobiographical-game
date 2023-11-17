@@ -47,7 +47,6 @@ function sceneJournal() {
   rectMode(CENTER);
   let rWidth = 300;
   let rHeight = 350;
-  //rect(width / 2, height / 2, rWidth, rHeight, 20);
   imageMode(CENTER);
   image(notebook, width / 2 + 10, height / 2, 525, 525);
   textAlign(LEFT);

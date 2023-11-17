@@ -67,7 +67,7 @@ function setup() {
   //createCanvas(windowWidth, windowHeight);
   createCanvas(711, 400);
   textFont("Courier");
-  //AceClip= createVideo('Assets/AceAttorney.mp4');
+  //AceClip= createVideo('Assets/Video/AceAttorney.mp4');
   LRScript1 = LivingRoomScript1();
   decisionPane1 = initDecisionPane1();
   hwDecision = initHwDecision();
@@ -185,9 +185,7 @@ function mousePressed() {
     spoonSound.play();
     spoonPlay = false;
   }
-  /*  if (timeCount >= 11 && sceneN == 1) {
-    sceneN = 6;
-  }*/
+
   if (sceneN == 6 && endButton.isClicked(mouseX, mouseY)) {
     setup();
   }

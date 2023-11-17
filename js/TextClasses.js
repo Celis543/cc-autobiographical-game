@@ -158,13 +158,13 @@ class textButton {
       py < this.y + this.textSz / 2;
     return b;
   }
-  redLine() {
+  /*redLine() {
     push();
     stroke(255, 0, 0);
     strokeWeight(2);
     line(this.x, this.y, this.x + this.buttonTextWidth, this.y);
     pop();
-  }
+  }*/
   over() {
     if (
       mouseX > this.x &&
@@ -178,35 +178,4 @@ class textButton {
     }
   }
 }
-/*class nextScriptText {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.buttonText = ">";
-  }
-  display() {
-    push();
-    fill("green");
-    textSize(20);
-    text(this.buttonText, this.x, this.y);
-    pop();
-  }
-  isClicked(px, py) {
-    let buttonTextWidth = textWidth(this.buttonText);
-    let b =
-      px < buttonTextWidth + this.x &&
-      px > this.x &&
-      py > this.y - 20 &&
-      py < this.y + 20;
-    console.log(
-      this.x,
-      px,
-      buttonTextWidth + this.x,
-      this.y,
-      py,
-      this.y + 20,
-      b
-    );
-    return b;
-  }
-}*/
+
