@@ -8,7 +8,7 @@ let sceneN,
   nailN,
   Happiness;
 const textBoxHeight = 400 * 3 / 4 - 10;
-let notebook, spoon, spoonGray, cats, brush, livingRoom,livingRoomDark, Remote, tv, hand, doorClose, meow, purr, spoonSound, aceTheme, storedTime;
+let notebook, spoon, spoonGray, cats, brush, livingRoom, livingRoomDark, Remote, tv, hand, doorClose, meow, purr, spoonSound, aceTheme, storedTime;
 let spoonsDisplayed = [];
 let spoonsGray = [];
 let spoons = [];
@@ -22,6 +22,8 @@ let AceClip;
 let mood = [];
 let hair = [];
 var angle = 0;
+let clockFont, buttonFont, startScreenFont, journalFont;
+let backButton, startButton, nextButton, endButton;
 
 function preload() {
   //aceTheme = loadSound("Assets/Sounds/courtIsNowInSession.mp3");
@@ -124,7 +126,7 @@ function draw() {
     case 11:
       sceneDayEnd();
       break;
-  
+
   }
 }
 
@@ -144,7 +146,7 @@ function initGlobalVariables() {
 }
 
 function mousePressed() {
-  if(sceneN>=1 && aceTheme.isPlaying()==false){
+  if (sceneN >= 1 && aceTheme.isPlaying() == false) {
     aceTheme.loop();
     aceTheme.setVolume(0.25);
     console.log('ace theme is playing');
