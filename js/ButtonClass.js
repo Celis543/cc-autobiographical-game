@@ -10,18 +10,26 @@ class Button {
   display() {
     if(this.isVisible){
     push();
-    stroke(0);
-    if (this.over()) {
-      fill(204, 50, 128);
-    } else {
-      fill(157, 0, 100);
-    }
+    stroke(48,0,44);
+    
     rectMode(CENTER);
-    rect(this.x, this.y, this.w, this.h, 5);
-    fill(0);
+    fill(157, 0, 100); //lowlight color
+    rect(this.x, this.y, this.w, this.h, 25); //lowlight
+    push();
+    noStroke();
+    fill(212, 0, 135);  //highlight color
+    rect(this.x-1, this.y-1, this.w-4, this.h-4, 23);   //highlight
+    pop();
+    if (this.over()) {
+      fill(214,122,206);
+      //fill(204, 50, 128);
+    } else {
+    fill(48,0,44);
+    }
     noStroke();
     textAlign(CENTER, CENTER);
     textSize(18);
+    textFont(buttonFont);
     text(this.label, this.x, this.y);
     pop();
     } else {

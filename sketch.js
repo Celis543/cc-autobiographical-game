@@ -8,7 +8,7 @@ let sceneN,
   nailN,
   Happiness;
 const textBoxHeight = 400 * 3 / 4 - 10;
-let spoon, spoonGray, cats, brush, livingRoom, Remote, tv, hand, doorClose, meow, purr, spoonSound;
+let notebook, spoon, spoonGray, cats, brush, livingRoom, Remote, tv, hand, doorClose, meow, purr, spoonSound;
 let spoonsDisplayed = [];
 let spoonsGray = [];
 let spoons = [];
@@ -28,6 +28,7 @@ function preload() {
   meow = loadSound("Assets/cat-meow-6226.mp3");
   purr = loadSound("Assets/cat-purring.mp3");
   spoonSound = loadSound("Assets/spoon_sound.mp3");
+  notebook = loadImage("Assets/IMG_0418.png");
   spoon = loadImage("Assets/kitchen-spoon-icon.png");
   spoonGray = loadImage("Assets/IMG_0404.png");
   livingRoom = loadImage("Assets/IMG_2877.jpeg");
@@ -46,10 +47,13 @@ function preload() {
   mood[0] = loadImage("Assets/badMood.png");
   mood[1] = loadImage("Assets/meh.png");
   mood[2] = loadImage("Assets/goodMood.png");
-  hair[0]=loadImage('Assets/IMG_0419.jpeg');
-  hair[1]=loadImage('Assets/IMG_0420.jpeg');
+  hair[0] = loadImage('Assets/IMG_0419.jpeg');
+  hair[1] = loadImage('Assets/IMG_0420.jpeg');
   clockFont = loadFont('Assets/Fonts/clockType.ttf');
-  startScreenFont= loadFont('Assets/Fonts/cartoonBlocks.ttf');
+  buttonFont = loadFont('Assets/Fonts/Orbitron-Black.ttf');
+  startScreenFont = loadFont('Assets/Fonts/VintageOne.ttf');
+  journalFont=loadFont('Assets/Fonts/Architex.ttf');
+
 }
 
 function setup() {
@@ -71,9 +75,9 @@ function setup() {
   startButton = new Button(width / 2, height / 2 + 100, 75, 50, "Start");
   endButton = new Button(width / 2, height / 2 + 100, 125, 50, "Start Over");
   nextButton = new Button(width - 60, height - 50, 75, 50, "Next");
-  let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
-  let timestring=timetxt.toString();
-  console.log(timestring);
+  let timetxt = `${timeCount}:${clockFormatting(timeCountMin)}`;
+  let timestring = timetxt.toString();
+  console.log('timestring ' + timestring);
 }
 
 function draw() {
@@ -120,15 +124,18 @@ function sceneJournal() {
   rectMode(CENTER);
   let rWidth = 300;
   let rHeight = 350;
-  rect(width / 2, height / 2, rWidth, rHeight, 20);
+  //rect(width / 2, height / 2, rWidth, rHeight, 20);
+  imageMode(CENTER);
+  image(notebook,width/2+10,height/2,525,525);
   textAlign(LEFT);
-  //textFont('Caveat');
-  text("JOURNAL", (width - rWidth) / 2 + 10, (height - rHeight) / 2 + 20);
+  textFont(journalFont);
+  textSize(14);
+  text("JOURNAL", (width - rWidth) / 2 + 5, (height - rHeight) / 2 + 10);
   text(
-    "Who knew art school would be so hard?? Just kidding. But seriously, it’s been a huge adjustment. Back when I was an engineer, nobody cared about my thoughts. Now, every assignment is something personal to me. It’s next to impossible to work on something without putting your heart into it. It’s exhausting. Lately all I want to do is play video games or watch TV. I can barely bring myself to shower consistently. My plants are dying because I’m too busy to take care of them. I don’t remember the last time I cooked a real meal for myself.I told myself this wouldn’t be like the first time I was in school. I need to get better at taking care of myself.",
-    width / 2,
+    "Who knew art school would be so hard?? \nJust kidding. But seriously, it’s been a huge adjustment. Back when I was an engineer, nobody cared about my thoughts. Now, every assignment is something personal to me. It’s next to impossible to work on something without putting your heart into it. It’s exhausting. Lately all I want to do is play video games or watch TV. I can barely bring myself to shower consistently. My plants are dying because I’m too busy to take care of them. I don’t remember the last time I cooked a real meal for myself. \nI told myself this wouldn’t be like the first time I was in school. I need to get better at taking care of myself.",
+    width / 2-40,
     height / 2 + 30,
-    280,
+    210,
     340
   );
   pop();

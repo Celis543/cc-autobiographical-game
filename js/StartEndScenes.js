@@ -11,16 +11,21 @@ function sceneStart() {
 	var y = 0 + 20 * sin(angle);
   image(hair[1],x,y);
   angle += 0.01;
-  console.log('x,y' + angle)
   pop(); 
   pop();
   push();
-  fill(255);
   textStyle(BOLD);
-  textSize(60);
+  textSize(50);
   textFont(startScreenFont);
   textAlign(CENTER, CENTER);
-  text("SARA TAKES CARE OF HERSELF: A GAME", width / 2 - 200, 170, 400);
+  let texty=160;
+  let textw=600;
+  // fill('red');
+  // text("SARA TAKES CARE OF HERSELF: A GAME", width / 2 - 297, texty, textw);
+  fill(0);
+  text("SARA TAKES CARE OF HERSELF: A GAME", width / 2 - 300, texty, textw);
+  // fill('blue');
+  // text("SARA TAKES CARE OF HERSELF: A GAME", width / 2 - 303, texty, textw);
   pop();
   startButton.setVisible(true);
   startButton.display();
