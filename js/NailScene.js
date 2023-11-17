@@ -14,7 +14,11 @@ function initNailScript() {
 
 function sceneNails() {
   decisionPane1.setVisible(false);
-  image(livingRoom, 0, 0, width, height);
+  if (timeCount >= 6){
+    image(livingRoomDark, 0, 0, width, height);
+  } else{
+    image(livingRoom, 0, 0, width, height);
+  }
   txtBx = new textBox();
   txtBx.display();
   NailScript.display();

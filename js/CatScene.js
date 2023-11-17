@@ -4,12 +4,12 @@ function sceneCats() {
     image(cats, 0, 0, width, height);
     push();
     imageMode(CENTER);
-    image(brush,mouseX,mouseY,100,74);
     pop();
     if (purr.isPlaying()){
     backButton.setVisible(true);
     }
     backButton.display();
+    image(brush,mouseX,mouseY,100,74);
     console.log(mouseX + ', ' + mouseY);
     push();
     noFill();

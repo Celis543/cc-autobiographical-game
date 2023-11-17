@@ -28,10 +28,10 @@ function initDecisionPane1() {
 }
 
 function initgoToBed() {
- /* let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
+ let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
   let timestring=timetxt.toString();
-  console.log(timestring);*/
-  scriptText = [`${timeCount}:${clockFormatting(timeCountMin)}`, "Wow, that late already?", "I guess I should get ready for bed."];
+  console.log(timestring)
+  scriptText = [timestring, "Wow, that late already?", "I guess I should get ready for bed."];
   scriptStyle = [ITALIC, NORMAL, NORMAL]
   let bedScript = new Script(scriptText, scriptStyle);
   return bedScript;
@@ -48,24 +48,26 @@ function sceneLiving() {
   LRScript1.begin(true);
   //console.log(LRScript1.txtPos);
 
-  if (LRScript1.isScriptDone()) {
+  if (LRScript1.isScriptDone() && timeCount <= 9) {
     decisionPane1.setVisible(true);
     decisionPane1.display();
   }
   hwDecision.setVisible(false);
-  /*if (timeCount >= 9 && timeCountMin == 30 || timeCount >= 10 && timeCountMin == 0) {
+  if (timeCount >= 9 && timeCountMin == 30 || timeCount >= 10 && timeCountMin == 0) {
     decisionPane1.setVisible(false);
+    (console.log(decisionPane1.isVisible));
     goToBed.display();
     goToBed.begin(true);
+    console.log("time is " + timeCount + ":" + clockFormatting(timeCountMin));
     if (goToBed.isScriptDone()) {
       sceneN = 6; //end game
     }
-  }*/
+  }
 }
 
 function lrMousePressed() { //everything that goes in mousePressed
   LRScript1.clicked();
-  if (LRScript1.isScriptDone()) {
+  if (LRScript1.isScriptDone() && timeCount <= 9) {
     decisionPane1.clicked();
   }
   if (sceneN == 7 && LRScript1.currentText == 0) {
@@ -74,5 +76,8 @@ function lrMousePressed() { //everything that goes in mousePressed
   if (sceneN == 1 && LRScript1.currentText == 1) {
     meow.setVolume(0.5);
     meow.play();
+  }
+  if (timeCount >= 9 && timeCountMin == 30 || timeCount >= 10 && timeCountMin == 0) {
+    goToBed.clicked();
   }
 }

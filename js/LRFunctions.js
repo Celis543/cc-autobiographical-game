@@ -67,7 +67,6 @@ function moodMeter(){
     f = 'green';
     j = 2;
   }
-  rectMode(LEFT);
   imageMode(CENTER);
   fill(f);
   image(mood[j], 15, 50, 20, 21); //mood symbol
@@ -102,7 +101,11 @@ function createAction(
 }
 
 function LRSetup() { //setup function for Living Room scenes
-  image(livingRoom, 0, 0, width, height);
+  if (timeCount >= 6){
+    image(livingRoomDark, 0, 0, width, height);
+  } else{
+    image(livingRoom, 0, 0, width, height);
+  }
   cursor();
   txtBx = new textBox();
   txtBx.display();

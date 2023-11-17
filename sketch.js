@@ -8,7 +8,7 @@ let sceneN,
   nailN,
   Happiness;
 const textBoxHeight = 400 * 3 / 4 - 10;
-let notebook, spoon, spoonGray, cats, brush, livingRoom, Remote, tv, hand, doorClose, meow, purr, spoonSound;
+let notebook, spoon, spoonGray, cats, brush, livingRoom,livingRoomDark, Remote, tv, hand, doorClose, meow, purr, spoonSound, aceTheme, storedTime;
 let spoonsDisplayed = [];
 let spoonsGray = [];
 let spoons = [];
@@ -24,14 +24,17 @@ let hair = [];
 var angle = 0;
 
 function preload() {
-  doorClose = loadSound("Assets/door-open-close-45475.mp3");
-  meow = loadSound("Assets/cat-meow-6226.mp3");
-  purr = loadSound("Assets/cat-purring.mp3");
-  spoonSound = loadSound("Assets/spoon_sound.mp3");
+  //aceTheme = loadSound("Assets/Sounds/courtIsNowInSession.mp3");
+  aceTheme = loadSound("Assets/Sounds/relaxed-vlog-night-street-131746.mp3");
+  doorClose = loadSound("Assets/Sounds/door-open-close-45475.mp3");
+  meow = loadSound("Assets/Sounds/cat-meow-6226.mp3");
+  purr = loadSound("Assets/Sounds/cat-purring.mp3");
+  spoonSound = loadSound("Assets/Sounds/spoon_sound.mp3");
   notebook = loadImage("Assets/IMG_0418.png");
   spoon = loadImage("Assets/kitchen-spoon-icon.png");
   spoonGray = loadImage("Assets/IMG_0404.png");
   livingRoom = loadImage("Assets/IMG_2877.jpeg");
+  livingRoomDark = loadImage("Assets/IMG_2930.jpeg");
   cats = loadImage("Assets/cats.jpeg");
   brush = loadImage("Assets/brush.png");
   tv = loadImage("Assets/LivingRoom.png");
@@ -49,10 +52,12 @@ function preload() {
   mood[2] = loadImage("Assets/goodMood.png");
   hair[0] = loadImage('Assets/IMG_0419.jpeg');
   hair[1] = loadImage('Assets/IMG_0420.jpeg');
+  hair[2] = loadImage('Assets/IMG_0421.jpeg');
+  hair[3] = loadImage('Assets/IMG_0422.jpeg');
   clockFont = loadFont('Assets/Fonts/clockType.ttf');
   buttonFont = loadFont('Assets/Fonts/Orbitron-Black.ttf');
   startScreenFont = loadFont('Assets/Fonts/VintageOne.ttf');
-  journalFont=loadFont('Assets/Fonts/Architex.ttf');
+  journalFont = loadFont('Assets/Fonts/Architex.ttf');
 
 }
 
@@ -77,7 +82,8 @@ function setup() {
   nextButton = new Button(width - 60, height - 50, 75, 50, "Next");
   let timetxt = `${timeCount}:${clockFormatting(timeCountMin)}`;
   let timestring = timetxt.toString();
-  console.log('timestring ' + timestring);
+  arr = [timestring, 0]
+  console.log(arr);
 }
 
 function draw() {
@@ -115,32 +121,11 @@ function draw() {
     case 10:
       sceneInstructions();
       break;
+    case 11:
+      sceneDayEnd();
+      break;
+  
   }
-}
-
-function sceneJournal() {
-  background(255);
-  push();
-  rectMode(CENTER);
-  let rWidth = 300;
-  let rHeight = 350;
-  //rect(width / 2, height / 2, rWidth, rHeight, 20);
-  imageMode(CENTER);
-  image(notebook,width/2+10,height/2,525,525);
-  textAlign(LEFT);
-  textFont(journalFont);
-  textSize(14);
-  text("JOURNAL", (width - rWidth) / 2 + 5, (height - rHeight) / 2 + 10);
-  text(
-    "Who knew art school would be so hard?? \nJust kidding. But seriously, it’s been a huge adjustment. Back when I was an engineer, nobody cared about my thoughts. Now, every assignment is something personal to me. It’s next to impossible to work on something without putting your heart into it. It’s exhausting. Lately all I want to do is play video games or watch TV. I can barely bring myself to shower consistently. My plants are dying because I’m too busy to take care of them. I don’t remember the last time I cooked a real meal for myself. \nI told myself this wouldn’t be like the first time I was in school. I need to get better at taking care of myself.",
-    width / 2-40,
-    height / 2 + 30,
-    210,
-    340
-  );
-  pop();
-  nextButton.setVisible(true);
-  nextButton.display();
 }
 
 function initGlobalVariables() {
@@ -154,10 +139,16 @@ function initGlobalVariables() {
   nailN = 0;
   Happiness = -10;
   previous = false;
+  aceTheme.stop();
 
 }
 
 function mousePressed() {
+  if(sceneN>=1 && aceTheme.isPlaying()==false){
+    aceTheme.loop();
+    aceTheme.setVolume(0.25);
+    console.log('ace theme is playing');
+  }
 
   if (timeCountMin == 60) {
     timeCount += 1;
@@ -194,10 +185,10 @@ function mousePressed() {
   }
   /*  if (timeCount >= 11 && sceneN == 1) {
     sceneN = 6;
-  }
+  }*/
   if (sceneN == 6 && endButton.isClicked(mouseX, mouseY)) {
     setup();
-  }*/
+  }
 }
 function mouseReleased() {
   purr.pause();
