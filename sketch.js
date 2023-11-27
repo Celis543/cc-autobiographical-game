@@ -8,16 +8,18 @@ let sceneN,
   nailN,
   Happiness;
 const textBoxHeight = 400 * 3 / 4 - 10;
-let notebook, spoon, spoonGray, cats, brush, livingRoom, livingRoomDark, Remote, tv, hand, doorClose, meow, purr, spoonSound, aceTheme, storedTime;
+let notebook, spoon, spoonGray, cats, brush, livingRoom, livingRoomDark, Remote, tv, hand, doorClose, meow, purr, spoonSound, bckgrndMusic, storedTime;
 let spoonsDisplayed = [];
 let spoonsGray = [];
 let spoons = [];
 let spoonPlay = false;
 let tvpics = [];
 let nails = [];
-let previousChoice, previous;
+let nailBrush = [];
+let nailBackground = [];
+let previousChoice, previous, nailPolish;
 let LRScript1, hwDecision, doHwAnyway, hwPostRelax, goToBed;
-let NailPics, NailScript;
+let NailPics, NailScript, nakedNails;
 let AceClip;
 let mood = [];
 let hair = [];
@@ -26,8 +28,8 @@ let clockFont, buttonFont, startScreenFont, journalFont;
 let backButton, startButton, nextButton, endButton;
 
 function preload() {
-  //aceTheme = loadSound("Assets/Sounds/courtIsNowInSession.mp3");
-  aceTheme = loadSound("Assets/Sounds/relaxed-vlog-night-street-131746.mp3");
+  //bckgrndMusic = loadSound("Assets/Sounds/courtIsNowInSession.mp3");
+  bckgrndMusic = loadSound("Assets/Sounds/relaxed-vlog-night-street-131746.mp3");
   doorClose = loadSound("Assets/Sounds/door-open-close-45475.mp3");
   meow = loadSound("Assets/Sounds/cat-meow-6226.mp3");
   purr = loadSound("Assets/Sounds/cat-purring.mp3");
@@ -45,10 +47,18 @@ function preload() {
   tvpics[1] = loadImage("Assets/Ofmd.jpeg");
   tvpics[2] = loadImage("Assets/AC.jpeg");
   tvpics[3] = loadImage("Assets/GBBO.jpeg");
+  nailBackground[0] = loadImage("Assets/AllPolish.jpeg");
+  nailBackground[1] = loadImage("Assets/PurplePolish.jpeg");
+  nailBackground[2] = loadImage("Assets/BrownPolish.jpeg");
+  nailBackground[3] = loadImage("Assets/GreenPolish.jpeg");
   hand = loadImage("Assets/Hand.png");
-  nails[0] = loadImage("Assets/IMG_0403.png");
+  nakedNails = loadImage("Assets/IMG_0414.png");
+  nails[0] = loadImage("Assets/IMG_0401.png");
   nails[1] = loadImage("Assets/IMG_0402.png");
-  nails[2] = loadImage("Assets/IMG_0401.png");
+  nails[2] = loadImage("Assets/IMG_0424.png");
+  nailBrush[0] = loadImage("Assets/IMG_0426.png");
+  nailBrush[1] = loadImage("Assets/IMG_0427.png");
+  nailBrush[2] = loadImage("Assets/IMG_0427.png");  //need to swap this for green nail brush eventually
   mood[0] = loadImage("Assets/badMood.png");
   mood[1] = loadImage("Assets/meh.png");
   mood[2] = loadImage("Assets/goodMood.png");
@@ -131,7 +141,7 @@ function draw() {
 }
 
 function initGlobalVariables() {
-  sceneN = 0; //scene number
+  sceneN = 3; //scene number
   spoonsNum = 4; //# spoons left
   spoonMax = 4; //spoons maximum
   tvPicNumber = 0; //to cycle tv pictures
@@ -141,15 +151,15 @@ function initGlobalVariables() {
   nailN = 0;
   Happiness = -10;
   previous = false;
-  aceTheme.stop();
-
+  bckgrndMusic.stop();
+  nailPolish=false;
 }
 
 function mousePressed() {
-  if (sceneN >= 1 && aceTheme.isPlaying() == false) {
-    aceTheme.loop();
-    aceTheme.setVolume(0.25);
-    console.log('ace theme is playing');
+  if (sceneN >= 1 && bckgrndMusic.isPlaying() == false) {
+    bckgrndMusic.loop();
+    bckgrndMusic.setVolume(0.1);
+    console.log('background music is playing');
   }
 
   if (timeCountMin == 60) {
