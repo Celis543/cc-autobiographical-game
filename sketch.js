@@ -48,7 +48,7 @@ function preload() {
   tvpics[2] = loadImage("Assets/AC.jpeg");
   tvpics[3] = loadImage("Assets/GBBO.jpeg");
   nailBackground[0] = loadImage("Assets/allPolish.jpeg");
-  nailBackground[1] = loadImage("Assets/burplePolish.jpeg");
+  nailBackground[1] = loadImage("Assets/purplePolish.jpeg");
   nailBackground[2] = loadImage("Assets/brownPolish.jpeg");
   nailBackground[3] = loadImage("Assets/greenPolish.jpeg");
   hand = loadImage("Assets/Hand.png");
