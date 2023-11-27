@@ -24,7 +24,7 @@ let AceClip;
 let mood = [];
 let hair = [];
 var angle = 0;
-let clockFont, buttonFont, startScreenFont, journalFont;
+let clockFont, buttonFont, startScreenFont, journalFont, courierFont;
 let backButton, startButton, nextButton, endButton;
 
 function preload() {
@@ -70,13 +70,14 @@ function preload() {
   buttonFont = loadFont('Assets/Fonts/Orbitron-Black.ttf');
   startScreenFont = loadFont('Assets/Fonts/VintageOne.ttf');
   journalFont = loadFont('Assets/Fonts/Architex.ttf');
+  courierFont = loadFont('Assets/Fonts/CourierPrime-Regular.ttf');
 
 }
 
 function setup() {
   //createCanvas(windowWidth, windowHeight);
   createCanvas(711, 400);
-  textFont("Courier");
+  textFont(courierFont);
   //AceClip= createVideo('Assets/Video/AceAttorney.mp4');
   LRScript1 = LivingRoomScript1();
   decisionPane1 = initDecisionPane1();
