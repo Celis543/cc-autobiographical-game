@@ -142,7 +142,7 @@ function draw() {
 }
 
 function initGlobalVariables() {
-  sceneN = 3; //scene number
+  sceneN = 0; //scene number
   spoonsNum = 4; //# spoons left
   spoonMax = 4; //spoons maximum
   tvPicNumber = 0; //to cycle tv pictures
