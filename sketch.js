@@ -182,11 +182,11 @@ function draw() {
 }
 
 function initGlobalVariables() {
-  sceneN = 1; //scene number
+  sceneN = 0; //scene number
   spoonsNum = 4; //# spoons left
   spoonMax = 4; //spoons maximum
   tvPicNumber = 0; //to cycle tv pictures
-  timeCount = 9;
+  timeCount = 4;
   timeCountMin = 30;
   nailN = 0;
   Happiness = -10;
