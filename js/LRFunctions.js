@@ -101,10 +101,18 @@ function createAction(
 }
 
 function LRSetup() { //setup function for Living Room scenes
-  if (timeCount >= 6){
+  if (timeCount >= 6 && inGameDay==1){
     image(livingRoomDark, 0, 0, width, height);
-  } else{
+    console.log("livingRoomDark");
+  } else if(inGameDay==1){
     image(livingRoom, 0, 0, width, height);
+    console.log("livingRoom");
+  } else if(timeCount >= 9 && timeCountMin == 30 && inGameDay==1 || timeCount >= 10 && timeCountMin == 0 && inGameDay==1) {
+    image(bedRoom, 0, 0, width, height);
+    console.log("bedroom");
+  } else if(inGameDay==2){
+    image(livingRoomMessy,0, 0, width, height);
+    console.log("livingRoomMessy");
   }
   cursor();
   txtBx = new textBox();

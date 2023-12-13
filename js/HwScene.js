@@ -89,7 +89,6 @@ function sceneHwPostRelax(){
 }
 
 function hwMousePressed() {
-  console.log(doHwAnyway.currentText);
   hwDecision.clicked();
   doHwAnyway.clicked();
   hwPostRelax.clicked();

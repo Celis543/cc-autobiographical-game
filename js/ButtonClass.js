@@ -60,7 +60,6 @@ class Button {
         px > this.x - this.w / 2 &&
         py > this.y - this.h / 2 &&
         py < this.y + this.h / 2;
-      console.log(this.label + " button clicked");
       return b;
     }
   }

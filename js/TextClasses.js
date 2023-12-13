@@ -15,39 +15,48 @@ class textBox {
 class Script {
   constructor(script, txtStyle) {
     this.script = script;
-    this.txtWidth = textWidth(this.words);
     this.txtStyle = txtStyle;
     this.currentText = 0;
+    this.txtWidth = textWidth(this.script[this.currentText]);
     this.isVisible = false;
     this.txtPos = textBoxHeight + 7;
-    this.textBoxWidth = (width * 5) / 6;
+    this.textBoxWidth = (width * 7) / 8;
+    this.arrowPos = this.textBoxWidth;
+    this.forward = true;
+    this.move = false;
+    this.vel = 0;
   }
   display() {
     if (this.currentText < this.script.length) {
+      this.moveArrow();
       push();
       textAlign(LEFT, TOP);
       fill(0);
       textStyle(this.txtStyle[this.currentText]);
       textSize(16);
-      this.buttonTextWidth = textWidth(this.script[this.currentText]);
+      // this.buttonTextWidth = textWidth(this.script[this.currentText]);
       text(this.script[this.currentText], 10, this.txtPos, this.textBoxWidth);
-      let size=courierFont.textBounds(this.script[this.currentText],10, this.txtPos,16);
+      //let size = courierFont.textBounds(this.script[this.currentText], 10, this.txtPos, 16);
       //console.log(size.w,this.buttonTextWidth + 'size.w,this.buttonTextWidth');
       //console.log(size.h + ' size.h');
       push();
       textAlign(LEFT, TOP);
       fill("green");
       textStyle(BOLD);
-      textSize(20);
+      textSize(40);
+      text('>', this.arrowPos, this.txtPos - 2);
+      //text('>', width-100, textBoxHeight+((height-textBoxHeight)/2));
       //console.log(mouseX, mouseY + ' mouseX, mouseY');
       //console.log(this.buttonTextWidth,this.textBoxWidth);
-      if (size.h<33) {
-        text('>', this.buttonTextWidth + 16, this.txtPos - 2, this.textBoxWidth);
+      /*if (size.h<30) {
+        textSize(20);
+        text('>', this.txtWidth + 16, this.txtPos - 2, this.textBoxWidth);
         console.log('> height 1');
       } else {
-        text('>', this.buttonTextWidth + 16, this.txtPos + 18, this.textBoxWidth);
+        textSize(40);
+        text('>', this.txtWidth + 16, this.txtPos, this.textBoxWidth);
         console.log('> height 2');
-      }
+      }*/
       pop();
       pop();
     }
@@ -56,6 +65,7 @@ class Script {
     if (this.isVisible) {
       if (this.currentText < this.script.length) {
         this.currentText++;
+        this.move = true;
       }
       redraw();
     }
@@ -65,6 +75,25 @@ class Script {
   }
   begin(bool) {
     this.isVisible = bool;
+  }
+
+  moveArrow() {
+    if (this.move) {
+      if (this.forward) {
+        this.vel++;
+        this.arrowPos += this.vel;
+      } else {
+        this.vel -= 1;
+        this.arrowPos += this.vel;
+      }
+      if (this.vel >= 3) {
+        this.forward = false;
+      } else if (this.vel < 0) {
+        this.move = false;
+        this.arrowPos = this.textBoxWidth;
+        this.forward = true;
+      }
+    }
   }
 }
 

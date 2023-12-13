@@ -1,7 +1,7 @@
 //initialize living room script text
 
 function LivingRoomScript1() {
-  scriptText = ["4:00 P.M.", "*meow*", "Hi kitties. *sigh*"];
+  scriptText = ["4:00 P.M. Early October.", "*meow*", "Hi kitties. *sigh*"];
   scriptStyle = [ITALIC, NORMAL, NORMAL]
   let script1 = new Script(scriptText, scriptStyle);
   return script1;
@@ -29,10 +29,14 @@ function initDecisionPane1() {
 
 function initgoToBed() {
  let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
-  let timestring=timetxt.toString();
-  console.log(timestring)
+ console.log('timeCount ', timeCount);
+ console.log("timetext", timetxt);
+ 
+ let timestring=timetxt.toString();
+  console.log("timestring", timestring);
   scriptText = [timestring, "Wow, that late already?", "I guess I should get ready for bed."];
   scriptStyle = [ITALIC, NORMAL, NORMAL]
+  console.log(scriptText);
   let bedScript = new Script(scriptText, scriptStyle);
   return bedScript;
 }
@@ -54,11 +58,13 @@ function sceneLiving() {
   if (timeCount >= 9 && timeCountMin == 30 || timeCount >= 10 && timeCountMin == 0) {
     decisionPane1.setVisible(false);
     (console.log(decisionPane1.isVisible));
+    LRSetup();
     goToBed.display();
     goToBed.begin(true);
     console.log("time is " + timeCount + ":" + clockFormatting(timeCountMin));
     if (goToBed.isScriptDone()) {
-      sceneN = 6; //end game
+      inGameDay=2;
+      sceneN=7;
     }
   }
 }
