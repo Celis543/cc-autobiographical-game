@@ -29,14 +29,10 @@ function initDecisionPane1() {
 
 function initgoToBed() {
  let timetxt=`${timeCount}:${clockFormatting(timeCountMin)}`;
- console.log('timeCount ', timeCount);
- console.log("timetext", timetxt);
- 
  let timestring=timetxt.toString();
   console.log("timestring", timestring);
   scriptText = [timestring, "Wow, that late already?", "I guess I should get ready for bed."];
   scriptStyle = [ITALIC, NORMAL, NORMAL]
-  console.log(scriptText);
   let bedScript = new Script(scriptText, scriptStyle);
   return bedScript;
 }

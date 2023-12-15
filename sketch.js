@@ -120,10 +120,10 @@ function setup() {
   startButton = new Button(width / 2, height / 2 + 100, 75, 50, "Start");
   endButton = new Button(width / 2, height / 2 + 100, 125, 50, "Start Over");
   nextButton = new Button(width - 60, height - 50, 75, 50, "Next");
-  let timetxt = `${timeCount}:${clockFormatting(timeCountMin)}`; //go to bed time dispay maybe get rid of this at some point
-  let timestring = timetxt.toString();
-  arr = [timestring, 0]
-  console.log(arr);
+  // let timetxt = `${timeCount}:${clockFormatting(timeCountMin)}`; //go to bed time dispay maybe get rid of this at some point
+  // let timestring = timetxt.toString();
+  // arr = [timestring, 0]
+  // console.log(arr);
   plantN=0;
   playDoorClose=false;
 }

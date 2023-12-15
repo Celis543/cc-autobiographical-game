@@ -23,3 +23,12 @@ h1, p {
   margin: 10px 0; /* Adjust spacing as needed */
   /* Add any additional styling you want for h1 and p */
 }
+
+.sketch-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Places the sketch behind other content */
+}
